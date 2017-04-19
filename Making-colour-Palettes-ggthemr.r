@@ -54,7 +54,7 @@ colours()
 dark_cols <- c('brown4', 'red4', 'orangered1', 'orange1', 'darkgreen', 'darkolivegreen4', 
                'aquamarine4', 'cyan4', 'darkblue', 'magenta4', 'indianred3', 'tan4', 'thistle4')
 
-# 10 colour atm
+# 10 colours atm
 light_cols <- c('lightgoldenrod1', 'chartreuse2', 'darkolivegreen2', 
                'aquamarine2', 'azure4', 'cornflowerblue', 'mistyrose2', 'salmon', 'sienna1', 'thistle')
 
@@ -85,3 +85,30 @@ lightCols <- define_palette(
 )
 # set the theme for your figures:
 ggthemr(lightCols)
+  
+  
+ ## using ggthemr to make a palette of four colours 
+  # corresponding to 4 treatments so that
+  ## all plots of relating to these treatements have the same palette
+  
+   use ggthemr to plot with my WP3 colour theme so 4 treatments
+# labelled as in all my other plots. 
+
+library(ggthemr)
+# define the four colours where black is control, choc4 is tmt2; slateblue is 
+  # treatment3 and olivedrab is treatment 4
+  
+WP3_colsA <- c("black", "chocolate4", "slateblue", "olivedrab")
+# add background white (#55555)
+WP3_cols <- c("#555555", WP3_colsA)
+
+# define palette
+WP3Cols <- define_palette(
+  swatch = WP3_cols, # colours for plotting points and bars
+  gradient = c(lower = WP3_cols[1L], upper = WP3_cols[2L]), #upper and lower colours for continuous colours
+  background = "white" #defining a grey-ish background 
+)
+
+# set new col theme as current
+
+ggthemr(WP3Cols)    
