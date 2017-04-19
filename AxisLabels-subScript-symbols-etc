@@ -1,0 +1,21 @@
+# using greek symbols and/or super and subscript in axis labels
+
+# from here
+#http://stackoverflow.com/questions/9923691/subscript-and-superscript-in-ylab-of-qplot-r
+
+# basically, subscript is [] and superscript ^
+
+# This is for use in ggplot, when doing other aes stuff for plot appearance
+# to modify plot add expression((paste)) to ylab or xlab = 
+# For example
+
+# rest of aes stuff +
+
+ylab(expression(paste('g ', NH[4],' ', kg[-1], ' dw'))) +
+  # cont
+  
+  ## to put mu or other greek symbol it's the same idea:
+  ## this one give ug C-CO2 g-1 soil hr-1
+  # with proper ug symbol and subscript/superscript for others as appropriate
+  
+    ylab(expression(paste('Basal Respiration (', mu, 'g ', C-CO[2],' ', g^-1, 'soil ', hr^-1, ' )' ))) +
