@@ -1,0 +1,18 @@
+## RStudio: installing packages not held in Cran Repository
+
+## find package online -> usually on cran site
+## look for Windows binaries, r_devel and download relevant file, usually a .zip file
+## find it in downloads, cut and paste in to Working Directory
+## send following script to console, changing name of zip file as relevant
+## in this example, my WDir was set to Camilla R therefore don't need to put
+## whole path to file.
+
+install.packages("~/Camilla R/GUniFrac_1.0.zip", repos = NULL, type = "source")
+
+
+## if successful should then say:
+## package 'BlahBlah' successfully unpacked and MD5 sums checked
+
+## now load into current work space
+
+library(BlahBlah)
