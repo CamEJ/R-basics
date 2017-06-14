@@ -1,0 +1,58 @@
+## reordering a factor for a facet grid plot
+# ie when you have a plot with 5 'subplots' within it
+# eg for different sample days
+# and you want them to be ordered a specific way
+
+# some kind person wrote a function setFactorOrder
+# so run this in R to make the functionfirst. 
+
+
+
+setFactorOrder <- function(x, order=sort(levels(x))) { 
+  # Returns a factor ordered by `order`.  
+  # If order is missing, defaults to `levels(x)` if available, else to `sort(unique(x))`
+  # Useful for ggplot and elsewhere were ordering is based on the order of the levels
+  
+  if (!is.factor(x)) {
+    warning("`x` is not a factor. Will coerce.")
+    levs <- sort(unique(x))
+    if (missing(order))
+      order <- levs
+  } else {
+    levs <- levels(x)
+  }
+  
+  # any values in order, not in levels(x)
+  NotInx <- setdiff(order, levs)
+  
+  if (length(NotInx)) {
+    warning ("Some values not in x:\n", paste(NotInx, collapse=", "))
+  }
+  
+  # levels(x) not explicitly named in order
+  Remaining <-  setdiff(levs, order)
+  
+  order <- c(setdiff(order, NotInx), Remaining)
+  
+  factor(x, level=order)
+}
+
+
+## now you can alter your factor
+## where PsD is my dataframe and SamplingTime is one of the variables
+# ie columns, and I want to specify how to order my 'subplots'
+# based on samplingtime info
+# inside the c("") put the variables of SamplingTime how 
+# you want them ordered in your plot. 
+
+PsD[["SamplingTime"]] <- setFactorOrder(PsD[["SamplingTime"]], c("T0", "T2", "T3", "T7", "T8", "T11", "T13"))
+
+# then you'd go ahead and plot as normal:
+# with ggplot
+
+k <- ggplot(PsD, aes(x=SamplingTime,y=Abundance, color = Treatment)) +
+  geom_boxplot()
+
+
+# from from 
+# https://stackoverflow.com/questions/19384304/is-there-a-way-to-order-the-ggplot2-facet-grid-subplots
