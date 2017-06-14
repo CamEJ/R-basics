@@ -19,3 +19,9 @@ ylab(expression(paste('g ', NH[4],' ', kg[-1], ' dw'))) +
   # with proper ug symbol and subscript/superscript for others as appropriate
   
     ylab(expression(paste('Basal Respiration (', mu, 'g ', C-CO[2],' ', g^-1, 'soil ', hr^-1, ' )' ))) +
+
+
+## to put some of it in italics:
+## in this eg Nitrosospira spp will be italicized only
+
+ + ylab(expression(paste("Relative abundance  ", italic(" Nitrosospira spp."))))
