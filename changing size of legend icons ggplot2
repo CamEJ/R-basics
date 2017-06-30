@@ -1,0 +1,11 @@
+
+## changing size of legend icons when plotting with ggplot2
+
+# usually find one of these two works. 
+
+xx2 <-  plot + guides(fill = guide_legend(override.aes = list(size=14))) 
+
+# or sometime that one seems to just make the line surrounding the icon
+# bigger and not the actual icon. 
+
+xx2 <- xx + theme(legend.key.size = unit(2, "cm"))
