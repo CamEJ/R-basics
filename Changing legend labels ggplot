@@ -1,0 +1,9 @@
+## Often legend labels are ugly as 
+## you need to enter them into R with no spaces etc.
+
+## to change them, make plot with ggplot, here plot is assigned name "PP"
+## changing info in c() as appropriate and in the order you want it to appear
+
+pp <- scale_fill_discrete(labels = c("Unknown", "Cytoplasm", "Membrane")
+
+## to see a working eg , see 'bar plots MPA data.R'
