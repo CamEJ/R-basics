@@ -9,3 +9,9 @@ xx2 <-  plot + guides(fill = guide_legend(override.aes = list(size=14)))
 # bigger and not the actual icon. 
 
 xx2 <- xx + theme(legend.key.size = unit(2, "cm"))
+
+## also this one is good as can alter spacing between icons:
+
+plot +   theme(legend.key = element_rect(size = 5),
+          legend.key.size = unit(1.5, 'lines')) 
+          
