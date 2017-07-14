@@ -25,3 +25,14 @@ ylab(expression(paste('g ', NH[4],' ', kg[-1], ' dw'))) +
 ## in this eg Nitrosospira spp will be italicized only
 
  + ylab(expression(paste("Relative abundance  ", italic(" Nitrosospira spp."))))
+ 
+ 
+ 
+ ## to turn off title all together:
+ 
+ + theme(axis.title.x=element_blank())
+ 
+ 
+ 
+ 
+ 
