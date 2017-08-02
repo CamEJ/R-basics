@@ -16,3 +16,9 @@ zz <- merge(dataCut, dataFull, by = "OTU")
 ## zz should be a df containing on the OTUS listed in dataCut, but now,
 ## those OTUS also have also the taxonomy from teh cons.taxonomy file. 
 
+
+# can then read this out as a csv
+write.csv(zz, file='NodeTaxaInfo.csv')
+
+
+
