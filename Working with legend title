@@ -1,0 +1,14 @@
+## working with legend titles
+
+# to change wording of title
+
+plot + labs(color="   Lime\nTreatment\n") # where you change colour or size as appropriate for your plot
+
+# \n means enter 
+
+
+## turning off one of legends
+
+plot + guides(shape=FALSE) # where you change shape or colour as appropriate 
+
+
