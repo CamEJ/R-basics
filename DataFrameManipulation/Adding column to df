@@ -1,0 +1,18 @@
+
+# Add column from one df to another (as long as they are the same lengths)
+
+# eg adding metadata to an already existing dataframe
+# So in this eg I add info re treatment (taken from a df called meTa which contains my metadata)
+# as an extra colum in data.scores where i give it the name treatment
+# ie there was no column already existing in data.scores called treatment -
+# it is made as part of the command
+
+
+
+data.scores$treatment<- meTa$Treatment
+
+# Did factor() to keep them in order that I input them when plotted
+# This will bring up warnings, dont worry about them.
+
+
+data.scores$treatment <- factor(data.scores$treatment, levels = data.scores$treatment)
