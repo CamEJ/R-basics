@@ -1,0 +1,28 @@
+
+## changing axis text - ie tick mark labels - manually
+## in ggplot2
+
+## Here I have a plot of OTUs which are currently plotted as 
+## OTU2, OTU6 etc and I want to put tax info instead.
+# dont feel like going back and messing with any of the files so 
+# will add labels by hand as follows
+
+# first make a vector containing labels, IN SAME ORDER as the ones you 
+# want them to replace. (you can use concatenate in excel to add "", to 
+# you list of names a little faster. 
+
+myLabs <- c("Myxococcales", "Rhizobiales","Spartobacteria unclass","Spartobacteria unclass",
+"Caulobacterales","Caulobacterales","Sphingobacteriales","Bacteria unclass",
+"Acidobacteria Gp4 unclass","Sphingobacteriales","Verrucomicrobia unclass",
+"Acidobacteria Gp3  unclass","Pseudomonadales","Bacteria unclass",
+"Myxococcales","Flavobacteriales","Myxococcales","Acidobacteria Gp3  unclass",
+"Verrucomicrobiales","Myxococcales","Pseudomonadales","Myxococcales",
+"Myxococcales","Myxococcales","Bacteroidetes unclass","Bacteroidetes unclass",
+"Bacteroidetes unclass","Flavobacteriales","Myxococcales","Myxococcales")
+
+# then add to plot 
+
+PTL <- pt + scale_x_discrete(labels= myLabs)
+
+
+
