@@ -1,0 +1,19 @@
+# reordering factors for ggplot
+
+# can do this using setFactorOrder function (also in this folder)
+# but sometimes if you have tons of factors and dont want to write them 
+# out one  by one as require in setFactorOrder, then use factor:
+
+# Here i hava a df and one of the columns (OTU) contains data (a factor)
+# which i want to plot my data according to its order in the original file
+# So, after reading in the file, do this:
+
+df$OTU <- factor(df$OTU, levels = df$OTU)
+
+# or if you want them to be inthe same order but reversed then include rev()
+# arguement: 
+LF$OTU <- factor(LF$OTU, levels = rev(LF$OTU))
+
+# continue with plotting. 
+
+
