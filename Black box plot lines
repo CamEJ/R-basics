@@ -1,0 +1,12 @@
+# Black box plot lines
+
+# so simple but you always forget how so here we go bimbo...
+# when adding geom_box plot to ggplot() just add argument
+# colour = black, like so:
+
+k <- ggplot(pp, aes(x=OTU,y=Abundance, fill=GrowthStage)) +
+  geom_boxplot(colour="black")
+  
+  # now the lines will be black instead of default grey
+  
+  
