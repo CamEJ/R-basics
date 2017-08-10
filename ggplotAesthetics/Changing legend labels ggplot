@@ -4,6 +4,9 @@
 ## to change them, make plot with ggplot, here plot is assigned name "PP"
 ## changing info in c() as appropriate and in the order you want it to appear
 
-pp <- scale_fill_discrete(labels = c("Unknown", "Cytoplasm", "Membrane")
+pp <- plot + scale_fill_discrete(labels = c("Unknown", "Cytoplasm", "Membrane")
 
 ## to see a working eg , see 'bar plots MPA data.R'
+## or lime study rel abund plots
+
+
