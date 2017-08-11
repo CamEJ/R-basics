@@ -1,0 +1,37 @@
+## increase spacing between axis label and axis text/tick marks. 
+# using margin()
+# where t = top
+# r= right
+# b= bottom
+# l = left
+
+# ------------------- Y axis -----------------------#
+
+# putting with y axis and changing r = (eg to 20) will make the space b/w text and label
+
+
+plot + theme(
+    axis.title.y=element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+)
+
+# ------------------- x axis -----------------------#
+# putting with x axis and changing t = (eg to 20) will make space
+
+
+plot + theme(
+axis.title.x=element_text( margin = margin(t = 10, r = 0, b = 0, l = 0))
+)
+
+
+
+
+
+
+# then can add other label arguments in here as normal..
+
+plot + theme(
+    axis.title.y=element_text(size=15, colour="black", margin = margin(t = 0, r = 20, b = 0, l = 0)),
+)
+
+
+
