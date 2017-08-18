@@ -6,8 +6,13 @@ plot + labs(color="   Lime\nTreatment\n") # where you change colour or size as a
 
 # \n means enter 
 
+## to turn off legend title (but leave rest of legend there)
 
-## turning off one of legends
+plot +  theme(legend.title=element_blank())
+
+
+
+## turning off one of legends completely. 
 
 plot + guides(shape=FALSE) # where you change shape or colour as appropriate 
 
