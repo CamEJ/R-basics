@@ -1,0 +1,7 @@
+# default plot
+p
+# Change the order of items
+# Change the x axis name
+p + scale_x_discrete(name ="Dose (mg)", 
+                    limits=c("2","1","0.5") # where you put these with same name as original plot 
+                                             # in the orde you would like them to appear on  new plot. 
