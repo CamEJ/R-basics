@@ -1,0 +1,14 @@
+# Selecting non consecutive rows
+
+# eg normally when you want to choose some columns from df1 to add to / make a new df2
+# you subset using [] and then if you wanted columns 1 to 5 it would be
+
+df2 = df1[,1:5]
+
+# however if cols you want are non-consecutive eg I want cols 1to 5 and 8 and 11. 
+# then do this way instead:
+
+df2 = df1[,c(1:5,8,11)]
+
+# simple. but i always forget. so here it is. 
+
