@@ -1,0 +1,41 @@
+
+## column means and sd using sapply
+
+d = read.table("Alpha_divMetrics2.txt", sep = "\t", header=T)
+
+head(Ddna)
+
+# group coverage     sobs invsimpson simpsoneven NucType
+# 1  DNA1 0.926883 1760.775   39.01580    0.022159     DNA
+# 2  DNA2 0.918906 1855.473   25.17446    0.013567     DNA
+# 3  DNA3 0.928506 1697.102   29.70465    0.017509     DNA
+# 4 cDNA1 0.944369 1460.000   74.52997    0.051048    cDNA
+# 5 cDNA2 0.952145 1386.221   64.07979    0.046179    cDNA
+# 6 cDNA3 0.950433 1377.447   55.65201    0.040366    cDNA
+
+Ddna <- subset(d, NucType=="DNA")
+# trim to just get cols with numbers in
+DD = Ddna[,2:5]
+
+# do same for cDNA
+Dcdna <- subset(d, NucType=="cDNA")
+CD = Dcdna[,2:5]
+
+# now run sapply. only thing i changed here is DD  - put name of dataset 
+
+sapply(DD, function(cl) list(means=mean(cl,na.rm=TRUE), sds=sd(cl,na.rm=TRUE)))
+
+# ouput
+#       coverage    sobs     invsimpson simpsoneven
+# means 0.924765    1771.117 31.2983    0.017745   
+# sds   0.005138525 79.69038 7.056945   0.004300859
+
+
+sapply(CD, function(cl) list(means=mean(cl,na.rm=TRUE), sds=sd(cl,na.rm=TRUE)))
+
+#output
+
+#       coverage    sobs     invsimpson simpsoneven
+# means 0.9489823   1407.889 64.75392   0.04586433 
+# sds   0.004085936 45.34189 9.457018   0.005347947
+
