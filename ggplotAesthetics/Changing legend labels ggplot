@@ -10,3 +10,16 @@ pp <- plot + scale_fill_discrete(labels = c("Unknown", "Cytoplasm", "Membrane")
 ## or lime study rel abund plots
 
 
+# if you used the colour, linetype and shape but not fill, 
+# during aes part of plotting, you have to integrate the new labeles with the 
+# scale_xxx_manual() - ie scale_colour_manual()
+
+# here's an eg for a line plot, with 6 lines
+# first i choose what colours I want my 6 lines to be and make an object with this info:
+
+lineCol = c("red", "orange1", "blue4", "lightslateblue", "darkgreen", "seagreen1")
+
+plot + scale_colour_manual(values = lineCol, labels = c("DNA 1", "DNA 2", "DNA 3", "cDNA 1", "cDNA 2", "cDNA 3"))
+
+# where you change the labels to what you want in labels = c()
+
