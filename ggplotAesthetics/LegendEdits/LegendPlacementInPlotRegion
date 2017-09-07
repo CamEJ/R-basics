@@ -1,0 +1,22 @@
+
+# put legend inside plotting area instead of usual outside
+
+
+p2 + theme(legend.justification = c(1, 1), legend.position = c(1, 1),
+           legend.background = element_rect(colour = "black", fill = "white"))
+           
+           
+           
+
+
+BotTop = plot + 
+theme(legend.justification = c(0, 1), legend.position = c(0, 1), title="Legend is top left")
+BotRight = plot +
+theme(legend.justification = c(1, 0), legend.position = c(1, 0), title="Legend is bottom right")
+LeftBot = plot + 
+theme(legend.justification = c(0, 0), legend.position = c(0, 0), title="Legend is bottom left")
+LeftTop = plot + 
+theme(legend.justification = c(1, 1), legend.position = c(1, 1), title="Legend is top right")
+
+# taken from here:
+# https://stackoverflow.com/questions/10747307/legend-placement-ggplot-relative-to-plotting-region
