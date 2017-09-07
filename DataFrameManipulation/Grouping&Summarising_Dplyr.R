@@ -7,22 +7,30 @@
 
 
 require(dplyr)
+# grouping and summarising variables within a df called 'abund'
 
-m_df <- tbl_df(m)
-
-abund <- select(m_df, Sample, Abundance, Treatment.A, SamplingTime)
-
-
-abundTot <- abund %>% 
-  group_by(Sample) %>%
-  summarise(abund = sum(Abundance), 
-            Tp = first(SamplingTime),
+abundTot <- abund %>% # choose name of new df (here it's abundTot) to which new data will be put
+  group_by(Sample) %>% # group by sample
+  summarise(abund = sum(Abundance),  # then use summarise to work out mean etc for each diff group
+            Tp = first(SamplingTime), # where each of these will be a new column in new df abundTot
             Tmt = first(Treatment.A),
             total = n())
 
+# select by more than one variable
+# if I have 10 time point and within each time point there are 4 treatments
+# and i want to get mean and sd for each tmt at each time point then
+# i need to group first by timepoint, then be treatment, as below: 
+
+Avs <- m %>% 
+  group_by(timepoint, Treatment) %>% # in the order you want them grouped
+  summarise(Mbr = mean(Bresp), 
+            SdBr = sd(Bresp))
 
 
-# pick out one OTU
+# using subset() to pick out all rows for a particular variable value
+# eg here I want to pick out all the rows for a variable Otu00015 that
+# is listed in the colum OTU of dataframe called m_df
+
 
 OTU15 <- subset(m_df, OTU=="Otu000015")
 
