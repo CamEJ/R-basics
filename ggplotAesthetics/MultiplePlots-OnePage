@@ -1,0 +1,24 @@
+
+# plotting multiple plots on one
+
+install.packages("ggpubr")
+library("ggpubr")
+
+# create plots as normal in ggplot. 
+# name them. Here i have 4 plots:
+
+
+ggarrange(plot1, plot2, plot3, plot4,
+          labels = c("A", "B", "C" , "D"),
+          ncol = 2, nrow=2)
+
+# hey presto. 
+
+
+
+To do more cool stuff:
+
+http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/81-ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page/
+
+
+
