@@ -1,0 +1,8 @@
+# horizontal legend
+
+
+
+ plot + theme(legend.direction = "horizontal") 
+
+
+# simple !
