@@ -5,8 +5,7 @@
 p2 + theme(legend.justification = c(1, 1), legend.position = c(1, 1),
            legend.background = element_rect(colour = "black", fill = "white"))
            
-           
-           
+                    
 
 
 BotTop = plot + 
@@ -20,3 +19,13 @@ theme(legend.justification = c(1, 1), legend.position = c(1, 1), title="Legend i
 
 # taken from here:
 # https://stackoverflow.com/questions/10747307/legend-placement-ggplot-relative-to-plotting-region
+
+
+# can do same thing when you've dont facet_wrap and you have an empty facet. 
+
+rep +
+theme(legend.position = c(1, 0), legend.justification = c(1, 0))
+
+# here the bottom right facet was empty.
+
+plot + theme(legend.direction = "horizontal") change legend to horiz so it fits in facet. 
