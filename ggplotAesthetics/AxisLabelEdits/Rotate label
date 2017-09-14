@@ -1,0 +1,13 @@
+
+# to rotate axes add angle arguement to axis.element.x or y
+# 90 = left 90 degrees and -90 = right 90 degrees 
+
+# then it will align funny and you'll need to play around with v and or hjust
+# for a rotated x axis, vjust =0.5 make it centre align. 
+
+
+plot + 
+theme(axis.text.x=element_text(size=16, colour="black", angle = -90, vjust=0.5),
+
+
+
