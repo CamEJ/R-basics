@@ -1,0 +1,5 @@
+# turn off axis ticks
+
+plot + theme(axis.ticks.x=theme_blank())
+
+# or change to axis.ticks.y for vertical axis. 
