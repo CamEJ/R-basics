@@ -13,3 +13,12 @@ data$colID <- with(data, col2 +1 / col3)
 CN$ratio <- with(CN, Carbon / Nitrogen) # add new column which is C:N ratio
 
 
+# if your new col is based on the sum of rows (or columns) then here's one way:
+# mdDF is only filled with numeric variables though. 
+# if you wanted column total it would be colSums()
+
+myDF[,"tot"] <- rowSums(myDF)
+
+
+
+
