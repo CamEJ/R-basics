@@ -1,0 +1,15 @@
+## adding a new column based on a calculation from an existed variable/column
+## using with()
+
+data$colID <- with(data, col2 +1 / col3)
+# where:
+# data = name of existing df
+# colID = name of your new column
+# col2 = name of first column you want to base your calc on and col3 the second
+
+# working eg ; using my WP3 carbon and nitrogen data,
+# I made a col containing carbon:nitrogen which i got by dividing % carb/ % nitrogn:
+
+CN$ratio <- with(CN, Carbon / Nitrogen) # add new column which is C:N ratio
+
+
