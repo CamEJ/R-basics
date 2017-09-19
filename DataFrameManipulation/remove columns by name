@@ -1,0 +1,13 @@
+# remove certain columns from a dataframe based on their name
+
+
+# from here:
+# https://stackoverflow.com/questions/5234117/how-to-drop-columns-by-name-in-a-data-frame
+
+# by adding the - in front of the c() we're saying we DON'T want
+# the two columns named water and wine. 
+# the remaining columns will be put into a dataframe called food. 
+# and the name of the originial dataframe is MyDataFrame
+
+food = subset(MyDataFrame, select=-c(water,wine))
+
