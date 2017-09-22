@@ -1,0 +1,5 @@
+
+## turning off one of legends completely. 
+
+plot + guides(shape=FALSE) # where you change shape or colour as appropriate
+
