@@ -1,0 +1,23 @@
+# ordering a factor based on the order of another
+
+# eg I have a dataframe I want to plot in ggplot with
+# many variables. One of these is time. I don't want to actually plot time
+# but I want my variables plotted according to time which i have as T0 -> T13
+# becase in R T11 will come before T2 the order it plots will be completely
+# non sensical. 
+
+# step one is to make sure your df is ordered according to time
+# using setFactorOrder.R function
+
+df[["time"]] <- setFactorOrder(df[["time"]], c("T0", "T2", "T3", "T5", "T7", "T8", "T11", "T13"))
+
+# then I will order my variable id (which will be my x axis variable) according to time order
+# 
+pie$id = factor(pie$id, level =  unique(pie$id[order(pie$time)]))
+
+# if your variable isnt repeated then you can leave out the unique argument. 
+
+Trest$Sample = factor(Trest$Sample, level =  Trest$Sample[order(Trest$Treatment)])
+
+
+
