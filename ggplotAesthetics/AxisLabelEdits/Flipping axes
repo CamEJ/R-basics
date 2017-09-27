@@ -1,0 +1,15 @@
+# Flipping axes ie 'reversing' the order they appear. 
+
+# if the axis you want to change is a numeric variable then this:
+plot + scale_y_reverse() # y axis reversed
+plot + scale_x_reverse()  # x axis reversed
+
+# if the axis you want to reverse is a factor then you need to do this
+
+plot + scale_x_discrete(limits = rev(levels(df$xvariable)))
+# where df is the name of the dataframe you are plotting from
+# and xvariable is the name of the x axis factor variable you are plotting
+
+# if it's a y acis change to scale_y_discrete
+
+
