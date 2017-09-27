@@ -1,0 +1,12 @@
+# increase plot margin
+# increase white area around the plot
+# using theme(plot.margin)
+
+plot + theme(
+        plot.margin = unit(c(0.5,1.5,0.5,0.5), "cm"))
+)
+
+# where the order of those four co-ordinates is top, right, bottom, left.
+# so in this eg I want my right margin to be 1.5 cm and the rest smaller at 0.5cm 
+
+
