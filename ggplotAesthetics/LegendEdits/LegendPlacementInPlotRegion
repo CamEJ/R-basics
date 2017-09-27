@@ -29,3 +29,12 @@ theme(legend.position = c(1, 0), legend.justification = c(1, 0))
 # here the bottom right facet was empty.
 
 plot + theme(legend.direction = "horizontal") change legend to horiz so it fits in facet. 
+
+
+## also see last suggesttion on this page for repositioning legend in a facet
+# using
+reposition_legend()
+
+# https://cran.r-project.org/web/packages/lemon/vignettes/capped-axes.html
+
+
