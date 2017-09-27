@@ -1,0 +1,13 @@
+# override clipping eg when you put text at end of axis and 
+# it gets clipped by legend
+
+# found here:
+# https://stackoverflow.com/questions/12409960/ggplot2-annotate-outside-of-plot
+
+library(grid)
+gt <- ggplot_gtable(ggplot_build(test))
+gt$layout$clip[gt$layout$name == "panel"] <- "off"
+grid.draw(gt)
+
+# where 'test' is the name of your plot made in ggpplot
+
