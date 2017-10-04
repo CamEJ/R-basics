@@ -1,0 +1,16 @@
+# selecting certain columns that contain a string of characters
+# eg I have an OTU table and my sample names correspond to treatment
+# and timepoint. I can select all the samples from a certain treatment
+
+require(dplyr)
+# eg my samples names from my controls all contain the prefix "Tmt1" eg Tmt1_t0_repA
+
+tmt1 <- select(fullDataSet, starts_with("Tmt1"))
+
+# if I wanted to select based on time (which is in the middle of the string then change for 'contains'
+
+timeZero <- select(fullDataSet, contains("t0"))
+
+# or if i wanted to choose all replicate As from the dataset it would be ends_with()
+
+repAs <- select(fullDataSet, ends_with("repA"))
