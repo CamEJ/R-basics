@@ -1,0 +1,11 @@
+# I have a dataframe with my sample names under the column 'variable' and then various observations
+# its a melted df so too complicated to add metadata information as usual using
+df$time = metadata$time
+
+# so as my sample names include information on treatment, I can
+# add new column with treatment variable based on string match with sampleID
+library(stringr)
+mf$tmt = str_extract(mf$variable, "Tmt1|Tmt2|Tmt3|Tmt4")
+
+# so I will have a new col called tmt filled with values Tmt1 - 4 according
+# to the matches it found in my sample names. 
