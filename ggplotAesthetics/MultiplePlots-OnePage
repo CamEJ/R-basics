@@ -11,6 +11,10 @@ library("ggpubr")
 ggarrange(plot1, plot2, plot3, plot4,
           labels = c("A", "B", "C" , "D"),
           ncol = 2, nrow=2)
+          
+          # other options include
+          common.legend = TRUE # if all plots share the same legend. default is F
+          align="hv" # to choose how you wnat them aligned. If its horizontal & vertical then "hv" or appropriate letter alone if not. 
 
 # hey presto. 
 
