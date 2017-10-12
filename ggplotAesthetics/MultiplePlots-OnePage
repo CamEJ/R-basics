@@ -5,19 +5,21 @@ install.packages("ggpubr")
 library("ggpubr")
 
 # create plots as normal in ggplot. 
-# name them. Here i have 4 plots:
+# name them when you plot.
+# eg Here i have 4 plots called plot1 - 4
 
 
 ggarrange(plot1, plot2, plot3, plot4,
-          labels = c("A", "B", "C" , "D"),
-          ncol = 2, nrow=2)
-          
-          # other options include
-          common.legend = TRUE # if all plots share the same legend. default is F
-          align="hv" # to choose how you wnat them aligned. If its horizontal & vertical then "hv" or appropriate letter alone if not. 
+          labels = c("A", "B", "C" , "D"), # can add labels. Sometimes these get in the way of the plots a bit if you have too many.
+          ncol = 2, nrow=2, # choose how many rows and or columns you want it plotted in. Can leave this out and let ggpubr decide. 
+          common.legend = TRUE, # if all plots share the same legend. default is F
+          align="hv" # to choose how you wnat them aligned. If its horizontal & vertical then "hv" or appropriate letter alone if not eg "h" 
+) # close
+
+# you can leave out or add as many of the arguments above as you want. to start maybe just do
+ggarrange(plot1, plot2, plot3, plot4)
 
 # hey presto. 
-
 
 
 To do more cool stuff:
