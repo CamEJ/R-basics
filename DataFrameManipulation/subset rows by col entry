@@ -13,3 +13,9 @@ irisSubset <- iris[grep("osa", iris$Species), ]
 
 newDF <= FullDF[grep("string", FullDF$ColumnID), ]
 
+# say you then want to make another data frame EXCLUDING the rows who contain the matching string
+# then you just use the minus sign in front of grep:
+
+keepThese <= FullDF[-grep("string", FullDF$ColumnID), ]
+
+
