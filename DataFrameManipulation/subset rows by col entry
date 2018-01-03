@@ -1,0 +1,15 @@
+# select certain rows based on a string match in a particular column
+# eg i want to get all my standards out of a dataframe, so I say that I want to choose all the rows 
+# who have the string 'stnd' entered in the column called "Contents" 
+# Answer found here:
+# https://stackoverflow.com/questions/13043928/selecting-rows-where-a-column-has-a-string-like-hsa-partial-string-match
+
+
+# eg i want all the rows in the iris data that have the partial string match of 'osa' in the column Species
+
+irisSubset <- iris[grep("osa", iris$Species), ]
+
+# format:
+
+newDF <= FullDF[grep("string", FullDF$ColumnID), ]
+
