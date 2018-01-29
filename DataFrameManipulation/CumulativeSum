@@ -1,0 +1,31 @@
+# working out cumulative sum
+
+# eg i have this df;
+
+vial_ID	tmt	  mins	timePoint	pressure
+A1	  N2:CO2	  0	  T0	  24.3
+A2	  N2:CO2	  0	  T0	  25
+A3	  N2:CO2	  0	  T0	  28.7
+B1	  H2:CO2-Am	0	  T0	  51.6
+B2	  H2:CO2-Am	0	  T0	  50.3
+B3	  H2:CO2-Am	0	  T0	  55.7
+A1	  N2:CO2	  90	T1	  33.8
+A2	  N2:CO2	  90	T1	  33.6
+A3	  N2:CO2	  90	T1	  35.9
+B1	  H2:CO2-Am	90	T1	  56.2
+B2	  H2:CO2-Am	90	T1	  55.0
+B3	  H2:CO2-Am	90	T1	  56.1
+
+# and I want to know how pressure change for each vial ID between timepoint T1 and T0
+
+# use dplyr to arrange data by vial ID then work out change in pressure for each sample (vial ID)
+# between each time point. 
+
+pdif = data %>%
+  group_by(vial_ID) %>%
+  mutate(volChange = lag(pressure, default = pressure[1]) - pressure)
+  
+  
+  # to finish 
+  # used this for help 
+  # https://stackoverflow.com/questions/27275363/r-cumsum-per-group-in-dplyr
