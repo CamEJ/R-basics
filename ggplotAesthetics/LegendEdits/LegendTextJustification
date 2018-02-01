@@ -1,0 +1,10 @@
+# change legend justification (left, centre or right)
+
+# just add theme(legend.text.align = )
+
+plot + theme(legend.text.align = 0) # left align (default in ggplot)
+plot + theme(legend.text.align = 0.5) # align centre
+plot + theme(legend.text.align = 1) # align right
+
+
+
