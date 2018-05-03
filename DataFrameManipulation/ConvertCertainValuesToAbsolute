@@ -1,0 +1,28 @@
+## Converting some variables to absolute
+
+# ie I have a column with numbers in, some negative some not. 
+# certain of these I want to convert to +ve (or absolute no) based on a 
+# condition from another column. 
+
+## from: https://stackoverflow.com/questions/12007796/how-to-convert-only-some-positive-numbers-to-negative-numbers-conditional-recod
+
+# for example, in the dataframe below, I want to convert negative values
+in Temp to positive ONLY if they belong to the treatment 'hot'
+    ID  tmt   Temp
+1   a1  hot   -20
+2   a2  cold  -30
+3   a3  hot   32
+4   a4  hot   -30
+5   a5  cold  12
+
+# make an 'index' of the variable on which you want to base it
+index <- data$tmt == "hot" 
+# now say you want the absolute number only if that index is satisfied:
+
+data$Temp[index] = abs(data$Temp[index])
+
+# put a - in front of abs if the number is postiive and you want to convert it to negatie
+
+
+# where i used this: N2CO2 vs H2CO2 fed vials in Specific methanogenic activity batch assays
+
