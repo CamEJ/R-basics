@@ -1,0 +1,37 @@
+## using grep for pattern matching
+
+# eg for pulling certain data out of a dataframe based on pattern matches. 
+
+# eg. I have a df called AllMyData and it looks like this
+
+ID  PeakArea  Treatment Contents
+1   923124    100     Standard
+2   667567    50      Standard
+3   345834    30      Standard
+4   122434    ctrl    Sample
+5   092543    ctrl    Sample
+6   435663    grain   Sample
+7   232323    grain   Sample
+8   129883    hay     Sample
+9   232333    hay     Sample
+
+# I want to take out my standards from here to analyse them
+# i will put them in a new df called 'Standards'
+
+Standards = AllMyData[grep("Stnd", AllMyData$Contents),]
+
+# now, if i wanted to analyse the rest of my data and REMOVE the 
+# standards from that dataframe, do the same thing but
+# but with a minus in front of grep. This means I want everything EXCEPT 
+# what matches my string
+
+# in the following eg My new df will be called TrimmedData
+
+TrimmedData = AllMyData[-grep("Stnd", AllMyData$Contents),]
+
+# now say I want to make a new df but just with samples from the hay and grain treatment
+# we use the pipe | to separate our strings for grep to match
+
+CowData = AllMyData[grep("grain|hay", AllMyData$Treatment),]
+
+
