@@ -1,0 +1,42 @@
+# bits & pieces about how to order factors
+# including ordering a factor based on the order of another
+
+# eg I have a dataframe I want to plot in ggplot with
+# many variables. One of these is time. I don't want to actually plot time
+# but I want my variables plotted according to time which i have as T0 -> T13
+# becase in R T11 will come before T2 the order it plots will be completely
+# non sensical. 
+
+# step one is to make sure your df is ordered according to time
+# using setFactorOrder.R function
+
+df[["time"]] <- setFactorOrder(df[["time"]], c("T0", "T2", "T3", "T5", "T7", "T8", "T11", "T13"))
+
+# The other, more simple, way is to say you want R to respect the order of
+# a certain variable as it was when you read the raw data in to R
+# ie, in this example, my variable treatment has everything in the right order
+# But I have multiple instances of each, so I include the unique() argument .
+
+MyData$treatment <- factor(MyData$treatment, levels = unique(MyData$treatment)) # assign order
+
+# OR you may want to order one variable according to another (because if you tell R to order according to a
+# a variable that you dont actually plot, then it will ignore the order of the dataset when plotting. 
+
+# so for example i want to order according to a column called ID in my dataset, but I never plot it
+# however i do plot treatment so will order treatment according to MyData$ID
+MyData$treatment = factor(MyData$treatment, level =  unique(MyData$treatmentorder(MyData$ID)]))
+
+# if your variable isnt repeated then you can leave out the unique argument. 
+
+MyData$treatment = factor(MyData$treatment, level =  MyData$treatment[order(MyData$ID)])
+
+# you can do this even do factor ordering at the stage of plotting
+
+# so here i tell it to order the factors in tmt column of myAveragesDF according the order of those
+# tmts in the original df called MyData
+plot <- ggplot(MyAveragesDF, aes(x=time, y=meanCH4, colour=factor(MyAveragesDF$tmt, levels= unique(MyData$tmt)))) +
+  geom_point(size=4, shape=21)
+
+
+
+
