@@ -21,6 +21,10 @@ ylab(expression(paste('g ', NH[4],' ', kg[-1], ' dw'))) +
     ylab(expression(paste('Basal Respiration (', mu, 'g ', C-CO[2],' ', g^-1, 'soil ', hr^-1, ' )' ))) +
 
 
+## if there's two elements that need a sub/super script number put a comma between the two 
+
+eg (expression(paste('mM ', H[2],O[2])
+
 ## to put some of it in italics:
 ## in this eg Nitrosospira spp will be italicized only
 
