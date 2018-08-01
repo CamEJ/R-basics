@@ -1,0 +1,15 @@
+# adding a dot with mean to boxplot
+
+# first define the function to give you the mean
+
+meanFunction <- function(x){
+  return(data.frame(y=round(mean(x),2),label=round(mean(x,na.rm=T),2)))}
+  
+  library(ggplot2)
+  
+  
+  ggplot(mydata, aes(xCategoricalVariable, yVariable, fill = factor(Treatment))) + # define variables
+  geom_boxplot(size=1) + # change line width, 
+  stat_summary(fun.y = mean, geom="point",colour="black", size=4) # add mean value as a dot in the middle of box 
+  
+  
