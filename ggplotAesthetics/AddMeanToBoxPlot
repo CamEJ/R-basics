@@ -12,4 +12,5 @@ meanFunction <- function(x){
   geom_boxplot(size=1) + # change line width, 
   stat_summary(fun.y = mean, geom="point",colour="black", size=4) # add mean value as a dot in the middle of box 
   
-  
+  # got from here:
+  # https://stackoverflow.com/questions/28225777/full-text-label-on-boxplot-with-added-mean-point
