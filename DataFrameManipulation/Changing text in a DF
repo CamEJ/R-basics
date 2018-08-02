@@ -1,0 +1,19 @@
+## changing text in a df in R
+
+# eg have the word 'tst' but what to change to 'Test'
+
+# using replace()
+data$variableID <- replace(data$variableID, data$variableID=="tst", "Test")
+
+# or using gsub
+data$variableID <- gsub('tst', 'Test', data$variableID)
+
+# or if you wanted to completely remove a symbol from the DF, then 
+# the replacement word is just empty ""
+# eg below I want to remove '+' symbol as it's messing things up in my labelling in ggplot
+ 
+data$variableID = gsub("[+]", "", data$variableID)
+
+
+# resources used:
+# https://stackoverflow.com/questions/7641666/changing-text-in-a-data-frame
