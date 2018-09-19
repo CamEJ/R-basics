@@ -1,0 +1,11 @@
+# how to combine dataframes while adding a column that says which dataframe
+# each row of resulting data comes from
+
+# may be other ways, but easiest way I've found is using gdata package
+library(gdata)
+
+# if i have three data sets, i just combine them using combine() and names of the
+# 3 datasets. It will automatically add a column 'source' where is says which df the data is from
+
+ALLdata = combine(Df1, Df2, Df3)
+
