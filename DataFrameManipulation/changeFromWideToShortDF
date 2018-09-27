@@ -1,0 +1,22 @@
+
+# to change from wide 'excel' type table to R type table
+
+reshape2
+melt()
+
+# and to change back from R type df to excel type aka wide df:
+
+# Cast the library into wide format
+all <- dcast(MeltedData, RowVariable~ColVariable)
+
+# where RowVariable is the variable you want along row, ie as column 1
+
+# or like this is other way
+reshape(dat1, idvar = "name", timevar = "numbers", direction = "wide")
+
+# see link for more : 
+https://stackoverflow.com/questions/5890584/how-to-reshape-data-from-long-to-wide-format
+
+
+
+
