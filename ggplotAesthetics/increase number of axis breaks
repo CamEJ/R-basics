@@ -1,0 +1,9 @@
+
+
+yoyo + scale_y_continuous(breaks = scales::pretty_breaks(n = 6))
+
+
+
+
+https://stackoverflow.com/questions/11335836/increase-number-of-axis-ticks
+
