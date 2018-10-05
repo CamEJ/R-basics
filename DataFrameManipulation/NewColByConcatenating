@@ -1,0 +1,8 @@
+# making a new column that is just
+# concatenated entries from other columns using paste()
+
+data$merger = paste(data$ID,data$TimePoint,sep="_")
+
+# will make a column called 'merger' in my dataset that for every row will have
+# entry from column 'ID' concatenated to entry from column 'TimePoint' and
+# these two entries will be separated by an underscore. Default separation is space
