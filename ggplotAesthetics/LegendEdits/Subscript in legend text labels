@@ -1,0 +1,26 @@
+# how to change text of variable labels in legend when they include sub/superscript 
+# eg peroxide (H2O2)
+
+# in ggplot2
+
+# in scale_fill_manual() or scale_shape_manual or scale_colour_manual, whatver was use in aes to make plot
+# add labels = argument and then in c() on left hand side of = you put the current label and on right 
+# hand of the = sign you put expression(paste(xxx))
+# even if some of hte labels are normal text, it seems they all need to have the expression(paste(()) bit or
+# it will bring an error
+
+# an example:
+
+
+plot +  scale_colour_manual(labels=c(Untreated=expression(paste(Untreated)),
+                                LARS=expression(paste(LARS)),
+                               Carbimide=expression(paste(Carbimide)),
+                               Urea=expression(paste(Urea)),
+                               Peroxide=expression(paste(H[2],O[2])),
+                               Urea_H2O2=expression(paste(Urea+H[2],O[2])),
+                               Urea_KI_H2O2=expression(paste(Urea+H[2],O[2]+KI)),
+                               KI_H2O2=expression(paste(Urea+KI))))
+
+
+# resources used:
+# https://stackoverflow.com/questions/6202667/how-to-use-subscripts-in-ggplot2-legends-r
