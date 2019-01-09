@@ -1,0 +1,32 @@
+
+# how to create a new column that is numeric from a column with a categorical variable
+
+
+library(dplyr)
+
+df = read.table("test.txt", header = TRUE)
+print(df)
+  id NO    cat
+1  A  1   June
+2  B  2    May
+3  C  3   June
+4  D  4 August
+5  E  3   July
+6  F  1   July
+
+# now i'll make a col call var which will be numeric and based on levels
+# of categorical variable 'cat'
+
+df$var = dense_rank(df$cat)
+
+> print(df)
+  id NO    cat var
+1  A  1   June   3
+2  B  2    May   4
+3  C  3   June   3
+4  D  4 August   1
+5  E  3   July   2
+6  F  1   July   2
+
+# done
+
