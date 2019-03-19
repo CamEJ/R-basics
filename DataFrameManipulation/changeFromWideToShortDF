@@ -14,6 +14,16 @@ all <- dcast(MeltedData, RowVariable~ColVariable)
 # or like this is other way
 reshape(dat1, idvar = "name", timevar = "numbers", direction = "wide")
 
+
+# this way best though i reckon:
+
+library(data.table)
+
+dcast(dataset, RowVariable ~ ColVariableIDS, value.var = "ColVariableValues")
+
+
+
+
 # see link for more : 
 https://stackoverflow.com/questions/5890584/how-to-reshape-data-from-long-to-wide-format
 
