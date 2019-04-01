@@ -1,0 +1,11 @@
+# removing empty columns from dataset
+
+emptycols <- sapply(myDF, function (k) all(is.na(k)))
+myCompleteDF <- myDF[!emptycols]
+
+
+## from here
+
+## https://stackoverflow.com/questions/17672649/r-remove-multiple-empty-columns-of-character-variables
+
+
