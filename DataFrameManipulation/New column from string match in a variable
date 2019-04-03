@@ -9,3 +9,22 @@ mf$tmt = str_extract(mf$variable, "Tmt1|Tmt2|Tmt3|Tmt4")
 
 # so I will have a new col called tmt filled with values Tmt1 - 4 according
 # to the matches it found in my sample names. 
+
+## ======== or you can split the string by a certain character ===================
+## eg i have a dataset called my data and the first column is called 'id'
+# and contains information about a sample treatment eg 1_autoclaved; 2_autoclaved, 3_lyophilised, 4_boiled.
+
+# so to make a new column, called treatment, i would split that 'id'
+# column by "_" that character and then say i want the string after the character by putting a 2
+# if i wanted the string before the splitting character I would put 1
+
+EG:
+
+mydata$treatment = sapply(str_split(mydata$id, "_"), "[", 2)
+# or to get thing before the characeter we are using to split by
+# and putin a column called SampleNumber
+
+mydata$SampleNumber = sapply(str_split(mydata$id, "_"), "[", 1)
+
+
+
