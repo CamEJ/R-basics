@@ -1,0 +1,34 @@
+## converting an already created ggplot plot into an interactive plot using plotly
+
+## you will need to make an account with plotly. From this you will get a username and password which 
+## you put in the space below. Follow instructions on link below to 
+# set up API credentials: https://plot.ly/r/getting-started
+
+library(plotly)
+
+plotty <- ggplotly(myGgPlot)
+
+# Create a shareable link to your chart
+
+Sys.setenv("plotly_username"="camillathorn85")
+Sys.setenv("plotly_api_key"="Yh2kEaXy5gKdmtw0lqVq")
+
+
+chart_link = api_create(plotty, filename="MyPlot_3Jan2019")
+chart_link
+
+## note:there is (currently) a snag where plotly does not work if any of your labels include 'expression_paste'
+# when you made your ggplot plot. So make different labels w/o expression paste and it'll work. (April 2019)
+
+
+## ========== using plotly to put interactive version of a ggplot into R markdown =======
+
+## my ggplot made plot is called plot one. 
+# include the plotly=TRUE and remember to load plotly library at beginning of your markdown document. 
+
+```{r plotly=TRUE}
+gg = plotly_build(plot1)
+gg
+```
+
+
