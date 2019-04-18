@@ -5,7 +5,7 @@
 colnames(dataframe)[which(names(dataframe) == "columnName")] <- "newColumnName"
 
 # by column number 
-colnames(dataframe)[2] <- "NewColName
+colnames(dataframe)[2] <- "NewColName"
 
 
 
