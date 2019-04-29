@@ -36,6 +36,8 @@ eg (expression(paste('mM ', H[2],O[2])
  # this one is better. Use ~ where you want spaces to be. For plus or minus signs put them in quotes. 
  plot + labs(y=expression(mM~NH[4]^{"+"}~per~sample)
  
+ # got it from here:
+ https://stackoverflow.com/questions/34892262/subscripts-and-superscripts-or-with-ggplot2-axis-labels-ionic-chemical
  
  
  ## to turn off title all together:
