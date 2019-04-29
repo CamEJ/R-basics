@@ -31,6 +31,12 @@ eg (expression(paste('mM ', H[2],O[2])
  + ylab(expression(paste("Relative abundance  ", italic(" Nitrosospira spp."))))
  
  
+ ##### ========= 2019 solution ====
+ 
+ # this one is better. Use ~ where you want spaces to be. For plus or minus signs put them in quotes. 
+ plot + labs(y=expression(mM~NH[4]^{"+"}~per~sample)
+ 
+ 
  
  ## to turn off title all together:
  
