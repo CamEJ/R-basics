@@ -1,0 +1,22 @@
+## how to plot only a subset of your data
+
+# so instead of doing grep() and making a new df with certain rows out of a dataframe in it,
+# you can use subset() to choose them and feed output directly to ggplot
+
+# for example, here i only want to plot Day1's data from the dataset 'data'
+ library(ggplot2)
+
+plot = ggplot(subset(data,Day=='1')) +
+  aes(Time, Rainfall, colour=Tmt)+
+  geom_point(shape=16, size = 4)
+ 
+
+
+
+ # or if you have more than one condition you want to subset by
+ 
+ggplot(subset(data,Day %in% c("1" , "3"))) + 
+         geom_line(aes(Time, Rainfall, group=Tmt, colour=Tmt))
+
+# taken from:
+# https://stackoverflow.com/questions/18165578/subset-and-ggplot2
