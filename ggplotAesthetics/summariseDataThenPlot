@@ -1,0 +1,38 @@
+
+# so instead of using dplyr to make a new df with averages and sd in it
+# and then plotting from that new 'averages' df, you can do all that inside the plotting command
+# block. using group_by then summarise
+
+# load libraries
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+
+# data used in this eg looks like this. 
+
+head(mdata)
+#  Tmt Day collectionMins element value
+#1  T1   1             10       P 0.489
+#2  T1   1             20       P 1.989
+#3  T1   1             30       P 1.392
+#4  T3   1             10       P 1.368
+
+plot = mdata %>%
+  group_by(Treatment, Day, element) %>% # choose variables that define how you want your data grouped for calcs below. 
+  summarise(MEAN = mean(value), # here is where you do the 'maths' eg want the mean of numbers in 'value' col
+            SD = sd(value)) %>%
+  ggplot(aes(RFS, MEAN, fill=Tmt))+ # and now to plotting part. 
+  geom_bar(stat="identity", position = "dodge")+
+  geom_errorbar(aes(ymin=MEAN-SD, ymax=MEAN+SD), position = "dodge") + 
+  labs(y = "Mean concentration (mg/L)", x= "") +
+  facet_wrap(~element, scales="free") 
+  
+  # now can do
+  plot + theme() # etc to edit text colour etc. 
+  
+  # note; if you want to use a variable from your df in the plotting section of the code, it needs to appear in the 
+  # group_by or summarise part
+  
+ 
+  
+  
