@@ -1,0 +1,14 @@
+## split characters with separations such as ; into separate rows
+
+## eg when you have an OTU table and you have columns with counts per sample
+# each sample in a separate column, then one column at the end with taxa infomation
+# with each taxomonic level separated by a ; 
+
+library(tidyr)
+# now use separate to split that the ; separated strings into diff cols
+# wehre you put hte IDs of hte new columns you want into the c() brackets
+
+MyPrettyDF = MyDF %>% separate(taxonomyColumn, c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"))
+
+
+
