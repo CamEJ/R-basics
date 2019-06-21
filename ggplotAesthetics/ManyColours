@@ -1,0 +1,19 @@
+
+## 38 colours here 
+Mycols <- c("aquamarine3", "blueviolet", "darkorange1", "violetred2", 
+                "darkgreen", "darkred", "goldenrod1", "deeppink4", "darkslateblue", 
+            "lightcoral","olivedrab3",  "navyblue", "violet", "darkorchid4", 
+                "tomato", "slategray3", "dodgerblue1", "violetred1", "brown4", 'olivedrab', 
+                'magenta',  'black','goldenrod',
+                'yellow', 'forestgreen', 'chocolate4', 'cornflowerblue',
+                'lightpink', 'midnightblue', 'red2', 'dodgerblue', 
+            'orange', 'cadetblue4', 'burlywood2',   'sienna2','maroon','cadetblue2', 'pink')
+
+
+
+## 20 colours
+abund_cols <- c("aquamarine3", "blueviolet", "darkorange1", "cornflowerblue", "darkgreen", 
+"darkred", "goldenrod1", "deeppink4", "darkslateblue", "olivedrab3", "lightcoral", "navyblue", 
+"violet", "darkorchid4", "tomato", "slategray3", "yellow", "violetred1", "brown4")
+
+
