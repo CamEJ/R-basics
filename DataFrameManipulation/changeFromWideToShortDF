@@ -3,6 +3,11 @@
 
 reshape2
 melt()
+## to keep certain columns and not melt them, include them in id.vars() argument
+#eg
+
+m.data = melt(data, id.vars = c("Recipe", "OLR", "HRT", "Temp"))
+
 
 # and to change back from R type df to excel type aka wide df:
 
