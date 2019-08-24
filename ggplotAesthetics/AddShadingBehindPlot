@@ -1,0 +1,11 @@
+
+# can give xmin, xmax and ymin ymax as specific numbers
+# or if you want rectangle to go from most left to most right of plot then 
+# put xmax = -Inf and xmin = Inf
+
+plot + annotate("rect", xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = 3, 
+           alpha = .2, fill="olivedrab4") # change fill colour as appropriate
+                                          # alpha defines how transparent you want the colour to be.
+           
+           
+           
