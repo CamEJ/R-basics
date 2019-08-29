@@ -17,3 +17,12 @@ data$variableID = gsub("[+]", "", data$variableID)
 
 # resources used:
 # https://stackoverflow.com/questions/7641666/changing-text-in-a-data-frame
+
+
+
+# can also use plyr's revalue() function
+
+library(plyr)
+data$variableID <- revalue(data$variableID, c("tst"="Test"))
+
+
