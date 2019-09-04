@@ -19,10 +19,41 @@ ggarrange(plot1, plot2, plot3, plot4,
 # you can leave out or add as many of the arguments above as you want. to start maybe just do
 ggarrange(plot1, plot2, plot3, plot4)
 
-# hey presto. 
+# if you want to turn off legend then include the argument legend="none"
 
 
-To do more cool stuff:
+# Arrange odd numbered plots
+# ::::::::::::::::::::::::::::::::::::::::::::::::::
+# say you have 5 plots, and you want 2 on first row, one on middle row and 2 on last row, then use "NULL"
+# to make sure they're the same size you can define the plot size by widths=() and heights=()
+
+myArrangedPlots = ggarrange(plot1, plot2, plot3, NULL, plot4,plot5,
+                       ncol = 2, nrow = 3,  align = "hv", 
+                       widths = c(1, 1), heights = c(1, 1),
+                       labels = c("A", "","B", "C", "D", ""),
+                       legend = "none")
+
+# :::::::::::::::::: annotate with a common title ::::::::::::::::::::::::::::::::
+## if you want to add one big title at the top of your plot use ggpubr argument annotate_figure():
+
+plotWtitle = annotate_figure(myArrangedPlots,
+                             top = text_grob("My many plots",
+                                             color = "black", face = "bold", size = 17)) # change appearance of text
+                                             
+## here is an example of one with greek symbols in
+plotWtitle = annotate_figure(myPlots,
+                             top = text_grob(expression(paste(" ", Delta, " removal at 19", degree, "C",  " (required - achieved FIB removal)")),
+                                             color = "black", face = "bold", size = 17))
+                                
+# can put these text boxed in many diff place, see examples on this page:
+https://rpkgs.datanovia.com/ggpubr/reference/annotate_figure.html
+
+
+# now to write out this grid of plots (I usually do preview to find out what size is best)
+ggsave("My_big_plotGrid.pdf",plotWtitle, width=12, height=8.5, units="in")
+
+
+# Another link toa page with more cool stuff:
 
 http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/81-ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page/
 
