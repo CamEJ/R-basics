@@ -1,7 +1,7 @@
 
-# plotting multiple plots on one
+## ========== plotting multiple plots on one page using ggarrange ========== ## 
 
-install.packages("ggpubr")
+#install.packages("ggpubr")
 library("ggpubr")
 
 # create plots as normal in ggplot. 
@@ -21,8 +21,35 @@ ggarrange(plot1, plot2, plot3, plot4)
 
 # if you want to turn off legend then include the argument legend="none"
 
+## ========== reducing space between plots ================
 
-# Arrange odd numbered plots
+To do this, you need to use the plot.margin argument of theme() in ggplot2 when 
+# making hte plots in the first place
+# for example - I want to put two plots on top of each other with no space at all
+# plot1 is gonna sit on top of plo2 so bottom margin of plot1 will be negative
+# and top margin of plot2 will be negative
+# where order of margins is c(top, right,bottom,left)
+# also, this doestn work for common legend - it messes things up. 
+
+plot1 + plot.margin=unit(c(1,1,-0.5,1), "cm"),
+
+plot2 + plot.margin=unit(c(-0.5,1,1,1), "cm"),
+
+ggarrange(plot1,plot2,
+          nrow=2,ncol=1,
+          align=hv)
+          
+# if you want the plots to have diffent heights, include the heights arguments
+# eg 
+
+ ggarrange(plot1,plot2,
+          nrow=2,ncol=1,
+          align=hv,
+          heights = c(1,2)# this will make plot 2 twice height of plot1.
+          widths=c(1,1)) # can do the same for widths. 
+
+
+## ======  Arrange odd numbered plots ==========
 # ::::::::::::::::::::::::::::::::::::::::::::::::::
 # say you have 5 plots, and you want 2 on first row, one on middle row and 2 on last row, then use "NULL"
 # to make sure they're the same size you can define the plot size by widths=() and heights=()
