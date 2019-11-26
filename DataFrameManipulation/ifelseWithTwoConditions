@@ -1,0 +1,13 @@
+
+
+# ifelse with string match condition & numeric condition
+
+# if my treatment is either 'Flood' or 'SlurryFlood' AND the Day variable is between 3 and 30,
+# then put "Inundated" in new column called Moisture
+# else put "Ambient" instead
+
+
+myDF$Moisture <- ifelse(myDF$Treatment %in% c("Flood", "SlurryFlood") & myPercents$Day <= 30 & myPercents$Day >=3, "Inundated", "Ambient")
+
+
+
