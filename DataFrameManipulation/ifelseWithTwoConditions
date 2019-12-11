@@ -10,4 +10,12 @@
 myDF$Moisture <- ifelse(myDF$Treatment %in% c("Flood", "SlurryFlood") & myDFDay <= 30 & myDF$Day >=3, "Inundated", "Ambient")
 
 
+# infact the second condition can be another ifelse.
+
+ifelse(Df$col %in% c("winter" "autmn"), "cold", 
+    ifelse(Df$col %in% c("spring"), warm, hot)
+
+                         
+                         
+
 
