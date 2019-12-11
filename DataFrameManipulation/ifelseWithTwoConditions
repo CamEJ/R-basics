@@ -7,7 +7,7 @@
 # else put "Ambient" instead
 
 
-myDF$Moisture <- ifelse(myDF$Treatment %in% c("Flood", "SlurryFlood") & myPercents$Day <= 30 & myPercents$Day >=3, "Inundated", "Ambient")
+myDF$Moisture <- ifelse(myDF$Treatment %in% c("Flood", "SlurryFlood") & myDFDay <= 30 & myDF$Day >=3, "Inundated", "Ambient")
 
 
 
