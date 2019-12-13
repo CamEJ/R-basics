@@ -1,0 +1,22 @@
+# when mapping shape and fill to two different variables when using
+# geom_point (with fillables shapes 21 - 25) the legend of the fill variable comes up black 
+# which makes sense, as ggplot doesnt know which of the shapes you've chosen should be the one
+# used to visualise fill colours
+
+# issue is described here: https://github.com/tidyverse/ggplot2/issues/2322
+
+# where solution is: using guides() manually tell ggplot2 which shape to use for legend
+# for fill variable (here will choose shape 21 as it's a nice circle. 
+
+plot +  guides(fill = guide_legend(override.aes=list(shape=c(21))))
+
+# ie full plotting:
+
+ggplot(data, aes(x= a, y= b, fill=treatment, shape=time))+
+  geom_point(size=3, stroke =0.5)  + 
+  scale_fill_manual(values = c("goldenrod" ,"black","chocolate4", "slateblue","olivedrab")) +# size and line thickness of plotted points
+  scale_shape_manual(values = c(21,22))
+  guides(fill = guide_legend(override.aes=list(shape=c(21))))
+  
+  
+  
