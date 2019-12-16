@@ -1,0 +1,17 @@
+## sometimes when arranging multiple plots on grid, you need to get legend out only
+
+# use cowplot package. 
+
+# and command get_legend
+myLegend <- cowplot::get_legend(myPlot)
+
+grid.newpage()
+grid.draw(myPlot)
+
+# or then use it in plot_grid, eg 
+
+plot_grid(myLegend,plot1, plot2, plot3, nrow = 4, rel_heights = c(0.5,2,2,2))
+# here i changed rel-heights so the top panel, ie my legend will be 1/4 as small as its just the legend. 
+
+# https://stackoverflow.com/questions/12041042/how-to-plot-just-the-legends-in-ggplot2
+
