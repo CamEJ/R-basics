@@ -80,7 +80,20 @@ https://rpkgs.datanovia.com/ggpubr/reference/annotate_figure.html
 ggsave("My_big_plotGrid.pdf",plotWtitle, width=12, height=8.5, units="in")
 
 
-# Another link toa page with more cool stuff:
+
+### if you want to specify relative heights or widths for arranging different sized plots, probably cowplot 
+# package is better:
+library(cowplot)
+
+plot_grid(plot1, NULL, nrow=1,rel_widths =  c(2,1))
+# plot1 will be twice as wide as 'NULL' plot
+# nice if you're arranging plots with diff number of facets on and want then to line up
+
+
+
+
+
+# Another link to a page with more cool stuff:
 
 http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/81-ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page/
 
