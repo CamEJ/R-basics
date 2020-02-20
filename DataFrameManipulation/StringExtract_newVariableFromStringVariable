@@ -21,6 +21,14 @@ mf$tmt = str_extract(mf$variable, "Tmt1|Tmt2|Tmt3|Tmt4")
 EG:
 
 mydata$treatment = sapply(str_split(mydata$id, "_"), "[", 2)
+ # if there are two words after the split character (each sep by a space) then include n=x argument to include all
+ # the words eg in mydata$id i have one row that is 1_autoclaved_30min
+ # and I want autoclaved_30min to be in my data$treatment
+ # not just autoclaved:
+
+mydata$treatment = sapply(str_split(mydata$id, "_", n=2), "[", 2)
+
+
 # or to get thing before the characeter we are using to split by
 # and putin a column called SampleNumber
 
