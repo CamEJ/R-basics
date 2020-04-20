@@ -1,0 +1,24 @@
+
+# how to re order a categorical variable plot order based on the values of the numeric variable
+# for example maybe want to display from largest to smallest eg in Cleveland plots, like here
+# https://uc-r.github.io/public/images/visual/cleveland-dotplots/unnamed-chunk-10-1.png
+
+#basic idea is to add reorder() to x var
+# eg here i found the max value of my variable and called it maxxy
+aes(x = reorder(CatVar, maxxy)
+# or if want it in reverse;
+aes(x = reorder(CatVar, desc(maxxy))
+
+
+# an example
+
+df %>% 
+  group_by(CatVar1, CatVar2) %>%
+  summarise(MEAN = mean(value),
+            maxxy = max(MEAN)) %>% # here i find out what my max value actually is
+ggplot(aes(x = reorder(CatVar1, maxxy),y= MEAN,fill=CatVar2)) + # then I use maxxy to re-order my CatVar1
+  geom_point(shape=21, colour="black", size =4) + # add fillable point
+  coord_flip() + # flip axes so easier to view
+  theme_bw()
+
+
