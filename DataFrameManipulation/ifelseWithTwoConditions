@@ -13,7 +13,8 @@ myDF$Moisture <- ifelse(myDF$Treatment %in% c("Flood", "SlurryFlood") & myDFDay 
 # infact the second condition can be another ifelse.
 
 ifelse(Df$col %in% c("winter" "autmn"), "cold", 
-    ifelse(Df$col %in% c("spring"), warm, hot)
+    ifelse(Df$col %in% c("spring"), "warm", "hot")
+    )
 
                          
                          
