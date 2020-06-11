@@ -1,0 +1,7 @@
+library(janitor)
+
+tTmt2 = tTmt2 %>%
+  row_to_names(row_number = 1)
+  
+  
+  # simple bru
