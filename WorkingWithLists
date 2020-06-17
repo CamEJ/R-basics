@@ -1,0 +1,11 @@
+# shit they're annoying
+
+# some helpful bits. 
+
+# convert it to a df using rbind 
+MyDf = do.call(rbind.data.frame, MyList)
+
+# this seemed to transpose it somehow. here's step to sort that too. 
+MyDfT = as.data.frame(t(do.call(rbind.data.frame, MyList)))
+
+
