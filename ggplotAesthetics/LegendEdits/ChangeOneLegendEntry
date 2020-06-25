@@ -1,0 +1,9 @@
+
+# change just one instance of a legend entry
+
+library(forcats)
+
+ggplot(dataFrame, aes(x=color, y = percent, fill = fct_recode(cut, "Very\nGood"="Very Good")))+
+  geom_bar(stat = "identity")
+  
+  # https://stackoverflow.com/questions/52979035/ggplot2-top-legend-key-symbol-size-changes-with-legend-key-label
