@@ -1,0 +1,7 @@
+# select variables by string match in var name
+
+select_data = FULLdata[ , grepl( "Cd|Cr|Cu|Fe|Ni|Pb|Zn" , names( FULLdata ) ) ]
+
+
+# will pull put vars Cd, Cr, Cu etc from my full dataset
+
