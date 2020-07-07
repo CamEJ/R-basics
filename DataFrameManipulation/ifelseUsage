@@ -1,6 +1,12 @@
 
 
-# ifelse with string match condition & numeric condition
+# ifelse with partial string match, use grepl
+# in eg below:if variable trim$group contains any rows with entried containing _cDNA then, in 
+# new var called 'fraction' the word cDNA will be entered, otherwise DNA will be entered
+
+ trim$fraction =  ifelse(grepl("_cDNA",trim$group),'cDNA','DNA')
+
+# ifelse with two conditions; string match condition & numeric condition
 
 # if my treatment is either 'Flood' or 'SlurryFlood' AND the Day variable is between 3 and 30,
 # then put "Inundated" in new column called Moisture
@@ -16,7 +22,11 @@ ifelse(Df$col %in% c("winter" "autmn"), "cold",
     ifelse(Df$col %in% c("spring"), "warm", "hot")
     )
 
-                         
-                         
+                        
+
+ 
+ 
+ 
+ 
 
 
