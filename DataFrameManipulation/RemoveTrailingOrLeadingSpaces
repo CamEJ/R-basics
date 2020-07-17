@@ -1,0 +1,16 @@
+# Removing 'white space' from beginning or end of characters
+
+library(stringr)
+
+
+df.nsp = df %>% 
+  mutate(across(where(is.character), str_trim))
+  
+  # this will go through and remove any leading or trailing spaces from any character variables in 
+  # dataframe called df. it'll put new 'no space' df in new one called df.nsp
+  
+  # can also choose to only remove leading (left) or trailing (right) spaces 
+  
+  # help here: https://stringr.tidyverse.org/reference/str_trim.html
+  # and here
+  # https://stackoverflow.com/questions/2261079/how-to-trim-leading-and-trailing-whitespace
