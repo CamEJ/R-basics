@@ -26,6 +26,7 @@ plot + theme(
 
 ## subscript & other scientific notation in facet labels
 # basically by using labeller = label_parsed in facet wrap after id'ing labels
+# using soution from here: https://stackoverflow.com/questions/54677633/how-to-add-superscripts-to-facet-labels
 
 # here a df called AvGHG which looks like this
 #     Day trt     Gas     MEAN      SE       unit                                
