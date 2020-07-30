@@ -1,0 +1,17 @@
+# format a variable as percent - i.e it will times it by 100 and put % sign 
+# after the number. eg i used then when wanted to display percentage change on a plot
+
+# from here: https://stackoverflow.com/questions/7145826/how-to-format-a-number-as-percentage-in-r/17787615
+
+# run function to label as percent 
+percent <- function(x, digits = 1, format = "f", ...) {
+  paste0(formatC(100 * x, format = format, digits = digits, ...), "%")
+}
+# in above, change 'digits = 1' to the number of decimal points you would like. 
+
+# then you can use it reformat your variable. Here i want to make a variable called 'change' into 'percent.change'
+myDF$percent.change = percent(myDF$change)
+
+# voila. 
+
+
