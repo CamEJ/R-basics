@@ -1,0 +1,20 @@
+library(janitor)
+
+tTmt2 = tTmt2 %>%
+  row_to_names(row_number = 1)
+  
+  
+  # simple bru
+  
+  
+  # Or, maybe you want assign a certain column as row names & remove it.
+  # this time use tidy verse as follows where df1 contains a variable 
+  # called 'ID' that you want to 1) assign as row names and 2) then remove from df1
+  
+library(tidyverse)
+
+df2 <- df1 %>% remove_rownames %>% column_to_rownames(var="ID")
+
+
+
+
