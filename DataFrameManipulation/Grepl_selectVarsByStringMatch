@@ -5,3 +5,11 @@ select_data = FULLdata[ , grepl( "Cd|Cr|Cu|Fe|Ni|Pb|Zn" , names( FULLdata ) ) ]
 
 # will pull put vars Cd, Cr, Cu etc from my full dataset
 
+
+
+## can also do it to select rows by slightly changing, as appropriate, the location of commas to ID rows and put rownames
+
+phase1 = FULLdata[grepl( "_T0|T1$|T2$" , rownames(FULLdata)), ]
+
+
+
