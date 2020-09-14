@@ -14,3 +14,12 @@ df.nsp = df %>%
   # help here: https://stringr.tidyverse.org/reference/str_trim.html
   # and here
   # https://stackoverflow.com/questions/2261079/how-to-trim-leading-and-trailing-whitespace
+
+
+# or remove a certain number of trailing characters for example below will remove last 4 characters from mdata$var and
+# reassign to mdata$var
+
+mdata$var = substr(mdata$var,1,nchar(mdata$var)-4)  
+
+
+# https://stackoverflow.com/questions/23413331/how-to-remove-last-n-characters-from-every-element-in-the-r-vector
