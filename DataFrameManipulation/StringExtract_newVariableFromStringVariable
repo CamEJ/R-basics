@@ -34,5 +34,15 @@ mydata$treatment = sapply(str_split(mydata$id, "_", n=2), "[", 2)
 
 mydata$SampleNumber = sapply(str_split(mydata$id, "_"), "[", 1)
 
+# ===== extracting string between two characters ======
+
+# eg i want to get string of text between underscore and full stop
+# eg R1_acetate.x1. -> i want just acetate
+# can use gsub and stuff, but this handy package is super easy. 
+
+library(qdap)
+mdata$test = genXtract(mdata$variable, "_", ".")
+
+
 
 
