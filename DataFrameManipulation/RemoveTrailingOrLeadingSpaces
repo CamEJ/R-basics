@@ -1,5 +1,10 @@
 # Removing 'white space' from beginning or end of characters
 
+#easiest way is if they are in a csv that you're reading in, just add strip.white = TRUE when reading in
+# with read.csv()
+
+# of if in a df that you're not reading in then do this way:
+
 library(stringr)
 
 
