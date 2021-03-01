@@ -53,6 +53,16 @@ p1 # look at plot to check
 
 
 
+## or can use dplyr to filter before hand
+# eg here im asking to only plot families who, under the variable 'value' exceed 1%
 
+longHigher %>% 
+  group_by(Family) %>% 
+  filter(value >= 1) %>% 
+   ggplot(aes(x=group, y=value, fill=Family)) + 
+  geom_bar(stat="identity")
+  
+  
+  
 
 
