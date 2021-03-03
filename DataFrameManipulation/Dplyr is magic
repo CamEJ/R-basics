@@ -1,0 +1,32 @@
+
+
+## Handy data wrangling data bits with dplyr
+
+
+# choose highest value vars from groups
+# 1. from big df, first, group by grouping variable, then 
+# 2 within each arrange rows by numeric variable (largest to smallest so desc)
+# 3. then use slice to select the first 10 rows of each group
+# ie the rows in each group with largest values of numeric var
+
+top10 <- big.df %>% 
+  group_by(group) %>% 
+  arrange(desc(value), .by_group = TRUE) %>% 
+  slice_head(n = 10)
+  
+  
+# similar but choose based on cumulative contribution
+
+#arrange by descending rel abund within group
+# then do cumulative sum
+
+df.out <- big.df %>% 
+  group_by(group) %>% 
+  arrange(desc(value), .by_group = TRUE) %>% 
+  mutate(cum.abund=cumsum(value))
+
+# now choose OTUs that make up to 80% of rel abund of each sample
+bo.select <- check %>% 
+  group_by(group) %>% 
+  filter(cum.abund < 80)
+
