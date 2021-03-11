@@ -1,0 +1,57 @@
+## how to assign colours so that the same levels of a factor
+# are always the same colour in a number of plots, even if fewer levels
+# of the colouring factor are used in one plot for example
+
+# ggplot2's facet_wrap and grid do this automatically, but you might need to make 
+# many separate plots that later want to combine /present together
+
+# first define colour list. 
+
+pcols <- c("plum1","black", "darkred", "darkslateblue", "darkorchid4", 
+           "dodgerblue1", "slategray3",'aquamarine3',  'darkgreen',
+           'yellow',  'lightpink')
+# then define the factor you want coloured by (order will be alphabetical unless you 
+#re arrange eg using dplyr and arrange()
+Phylum = levels(as.factor(full.df$Phylum))
+# where full.df is my full df and below, im gonna subset it (Ci) and plot the subset 
+# at end of here is header of Ci so can see what both full.df and Ci look like. 
+
+# now assign the names of my colours as the factor levels
+names(pcols)  <- Phylum
+
+
+Ci %>% 
+  ggplot(aes(x= value, y= OTU)) +
+  geom_line(aes(group = paired,colour=Phylum))+
+  geom_point(aes(shape=fraction, fill=Phylum), colour='black',size=4) +
+  theme(legend.position="top") +facet_wrap(~inoculum,scales = 'free',
+              labeller = as_labeller(f.labs))+
+  scale_shape_manual(values = c(21,23))+
+  scale_colour_manual(values=pcols) +
+  scale_fill_manual(values=pcols) +theme_classic()+
+  guides(fill = guide_legend(override.aes=list(shape=21)))+
+  labs(x='Relative abundance',shape='Fraction') 
+
+# for reference here is what Ci looks like. so name of colours in pcols and the name of variable im
+# choosing to colour by in aes() are the same (Phylum)
+ head(Ci)
+        OTU inoculum  Kingdom        Phylum       Class         Order                Family
+85 Otu00037        C Bacteria    Firmicutes  Clostridia Clostridiales Peptostreptococcaceae
+86 Otu00037        C Bacteria    Firmicutes  Clostridia Clostridiales Peptostreptococcaceae
+87 Otu00039        C Bacteria    Firmicutes  Clostridia Clostridiales      Clostridiaceae_1
+88 Otu00039        C Bacteria    Firmicutes  Clostridia Clostridiales      Clostridiaceae_1
+89 Otu00049        C Bacteria Bacteroidetes Bacteroidia Bacteroidales    Porphyromonadaceae
+90 Otu00049        C Bacteria Bacteroidetes Bacteroidia Bacteroidales    Porphyromonadaceae
+               Genus variable       value paired fraction
+85   Acetoanaerobium      DNA 1.026438569     43      DNA
+86   Acetoanaerobium     cDNA 0.000000000     43     cDNA
+87 Proteiniclasticum      DNA 0.881285640     44      DNA
+88 Proteiniclasticum     cDNA 0.005184033     44     cDNA
+89   Parabacteroides      DNA 0.689476413     45      DNA
+90   Parabacteroides     cDNA 0.000000000     45     cDNA
+
+
+## got solution from here:
+https://stackoverflow.com/questions/19068432/ggplot2-how-to-use-same-colors-in-different-plots-for-same-factor
+
+
