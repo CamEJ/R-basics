@@ -15,4 +15,5 @@ assign to variable in your df
 df$DaysPassed = as.numeric(difftime(df$Date, df$Dayzero , units = c("days")))
 
 
+# https://stackoverflow.com/questions/11666172/calculating-number-of-days-between-2-columns-of-dates-in-data-frame
 
