@@ -1,0 +1,18 @@
+# calculate number of days between two dates
+
+# use R command difftime()
+
+# eg to find num of days between 'date' and 'dayzero' 
+
+difftime(df$Date, df$Dayzero , units = c("days"))
+
+# this will give output as 0 days; 1 days etc. 
+# to get just number withouy 'days' after put as.numeric 
+
+as.numeric(difftime(df$Date, df$Dayzero , units = c("days")))
+
+assign to variable in your df
+df$DaysPassed = as.numeric(difftime(df$Date, df$Dayzero , units = c("days")))
+
+
+
