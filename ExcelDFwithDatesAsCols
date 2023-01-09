@@ -1,0 +1,27 @@
+# how to read in an excel file using read_excel() when 
+# some column names are dates
+
+# usually would just do 
+bmp <- read_excel("AshleighRun1_RunEndBMP.xlsx", sheet='GasVols-forR')
+
+head(bmp)
+
+  ID     `44855` `44856` `44858` `44860` `44862` `44866` `44869` `44872` `44875`
+  <chr>    <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+1 blank1       0    40        39       0       0      30      31       0       0
+2 blank2       0    33       180      90     405     375     260     140     120
+3 blank3       0    30       105       0     270      39      26       0       0
+4 1a           0     3.5      57     750     680     275     180     460     505
+
+# can see my dates are 44855 instead of 21/10/2022
+
+# use dplyr to pipe it to set names. 
+# my first var is called ID so I've put that as 'ID' again
+# if there are more than 1 col that arent dates before date cols begin then change -1 in line 24 as appropriate
+# change dae format in line 24 if your dates arent day-month-year. Leave the origin bit as is
+
+bmp <- read_excel("AshleighRun1_RunEndBMP.xlsx", sheet='GasVols-forR') %>% 
+                    setNames(., c('ID', format(as.Date(as.numeric(names(.)[-1]), 
+                                                       origin = '1899-12-30'), '%d/%m/%Y')))
+                                                       
+                        
