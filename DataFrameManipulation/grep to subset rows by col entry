@@ -18,4 +18,3 @@ newDF <= FullDF[grep("string", FullDF$ColumnID), ]
 
 keepThese <= FullDF[-grep("string", FullDF$ColumnID), ]
 
-
