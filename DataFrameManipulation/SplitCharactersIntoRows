@@ -10,5 +10,7 @@ library(tidyr)
 
 MyPrettyDF = MyDF %>% separate(taxonomyColumn, c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"))
 
+# do by separating character. eg got a sample ID that is V1D3 where V1 is expt unit and D3 is day
+MyPrettyDF = MyDF %>% separate(SampleID, into=c('unit', 'day'), sep="D", remove=FALSE)
 
-
+# at 4mins in pat schloss video here: https://www.youtube.com/watch?v=oLf0EpMJ4yA
