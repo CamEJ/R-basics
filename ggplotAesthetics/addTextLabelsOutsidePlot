@@ -1,0 +1,25 @@
+# adding labels / text outside ggplot area
+
+
+# label needs to be a variable. I made data from last x data point have labels
+# and everything else was empty ''
+dfe.cyum$lab = rep('', 12) # make new var called lab which is just filled with empty
+dfe.cyum[6,12] = 'Control' #6th row 12 col will be 'Control
+dfe.cyum[12,12] = '+ Electrolysis' # and 12th row 12 col willbe + Elec
+
+ggplot(dfe.cyum,aes(x=day, y=cumCH4,fill=ID,color=ID,shape=ID,label=lab))+
+  geom_line()+ guides(fill='none',color='none')+
+  geom_text(x = 8.5, # Set the position of the text to always be at '14.25'
+            hjust = 0,
+            size = 4.5,
+            color='black') +
+  coord_cartesian(xlim = c(0, 8), # This focuses the x-axis on the range of interest
+                  clip = 'off') +   # This keeps the labels from disappearing
+  theme(plot.margin = unit(c(1,6.3,1,1), "lines"), # change these to fit all your text 
+        panel.grid =element_blank(),
+        text = element_text(size=12),
+        axis.text = element_text(size=12)) 
+
+
+#from here:
+#https://stackoverflow.com/questions/12409960/ggplot2-annotate-outside-of-plot
