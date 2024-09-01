@@ -1,0 +1,11 @@
+
+
+# when different number of levels in a bar chart, then do facet wrap
+# the columns end up different thicknesses. instead use facet grid and 
+# do scales=free and space=free
+
+ ggplot(aes(x=Treatment, y=mean_rel_abund, fill=taxon)) +
+  geom_col() +
+facet_grid(. ~ Phase,
+               scales="free",
+              space = "free")
