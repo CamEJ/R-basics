@@ -1,0 +1,13 @@
+
+library(tidyverse)
+
+# read all sheets from same range (A57 to H67) using tidyverse magic
+# 1 id path (this doc is in my wkdir)
+path <- readxl_example("2024-ammoniaPlatesOnly.xlsx")
+# 2 use map to read range for each sheet
+ammo <- path %>%
+  excel_sheets() %>%
+  #set_names() %>% 
+  map_df(~ read_excel(path = path, sheet = .x, range = "A57:H67"), .id = "sheet")
+
+
