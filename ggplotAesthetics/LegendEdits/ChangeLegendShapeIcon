@@ -1,0 +1,19 @@
+# eg for geom_line() if you want legend shape to be a circle
+# or square instead use key_glyph from cowplot
+
+library(ggplot2)
+library(cowplot)
+
+# for a square
+ggplot(df, aes(x=day, y=tDMperHa, fill=Treatment))+
+  geom_boxplot(key_glyph = "rect") 
+
+# for a circle with color
+ggplot(df, aes(x=day, y=tDMperHa, color=Treatment))+
+  geom_boxplot(key_glyph = "point") 
+
+# for a circle with fill need to update shape to fillable
+# eg shape 21
+ggplot(df, aes(x=day, y=tDMperHa, color=Treatment))+
+  geom_boxplot(key_glyph = "point")  +
+  guides(fill = guide_legend(override.aes = list(shape = 21)))
