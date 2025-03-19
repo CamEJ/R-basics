@@ -1,0 +1,45 @@
+
+# https://stackoverflow.com/questions/75931704/bad-day-count-with-scaleslabel-time
+
+
+# define time zero. 
+ Tzero <- ymd_hms('2022-06-22 00:08:39')
+
+> head(P3.3.av)
+# A tibble: 6 × 7
+  Treatment Date       `lubridate::hour(datetime)`   orp    ph datetime            phase
+  <chr>     <date>                           <int> <dbl> <dbl> <dttm>              <chr>
+1 CO        2022-06-22                           0 -419.  8.03 2022-06-22 00:08:39 Test 
+2 CO        2022-06-22                           1 -427.  8.08 2022-06-22 01:12:39 Test 
+3 CO        2022-06-22                           2 -430.  8.10 2022-06-22 02:14:39 Test 
+4 CO        2022-06-22                           3 -432.  8.11 2022-06-22 03:54:39 Test 
+5 CO        2022-06-22                           4 -434.  8.12 2022-06-22 04:24:39 Test 
+6 CO        2022-06-22                           5 -433.  8.12 2022-06-22 05:58:39 Test 
+
+
+
+d <- P3.3.av |> 
+    mutate(Time = ymd_hms(datetime),
+           spent = interval(Tzero, Time),
+           day_num = as.numeric(spent/days(1)))
+  
+  ggplot(d, aes(x = day_num, y = ph,color=Treatment)) +
+    geom_point() +
+    geom_line() +
+    geom_line(
+      key_glyph = circle_key_glyph(
+        fill = color,
+        color = "black", linetype = 1, size = 0.3,
+        padding = margin(2, 2, 2, 2)
+      )) + 
+    theme_classic() +
+    labs(x = 'Day of experimental period', y='pH',color='') +
+    scale_y_continuous(breaks=pretty_breaks(7))+
+    theme(axis.text.x = element_text(angle=90))+
+    #facet_wrap(~phase,scales='free_x')+
+    facet_grid (.~ phase, scales = "free_x", space = "free_x")+
+    scale_color_manual(values=c( "violetred2", "olivedrab3","dodgerblue", "goldenrod1", "sienna", 
+                                 "grey", "black", "violet", "darkorchid4"),
+                       labels=c('Control','High','Low'))
+  
+  
